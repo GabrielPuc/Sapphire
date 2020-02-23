@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+      Deals by Store
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+		<ion-item *ngFor="let store of stores" (click)="LaunchStoreDeals(store.storeID,store.storeName)">
+      <ion-thumbnail slot="start">
+        <img src="https://www.cheapshark.com/{{store.images.logo}}">
+      </ion-thumbnail>
+      <div style="margin: 8px;">
+        <ion-label>{{store.storeName}}</ion-label>
+      </div>
+    </ion-item>
+	</ion-list>
+</ion-content>

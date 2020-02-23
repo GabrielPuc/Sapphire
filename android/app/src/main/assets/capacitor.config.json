@@ -1,0 +1,8 @@
+{
+  "appId": "com.gdbm.sapphire",
+  "appName": "sapphire",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>
+      Detail
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-label class="title">{{gameDetail.name_original}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label class="score">Metacritic Score: {{gameDetail.metacritic}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label style="white-space: normal;" [innerHTML]="gameDetail.description"></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
