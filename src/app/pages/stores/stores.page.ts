@@ -23,7 +23,7 @@ export class StoresPage {
   }
   
   LaunchStoreDeals(storeID,storeName){
-    this.router.navigate(['/storeDeals',storeID,storeName]);
+    this.router.navigate(['/stores',storeID,storeName]);
   }
 
 }

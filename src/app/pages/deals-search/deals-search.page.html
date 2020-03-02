@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+      Deals
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()"></ion-searchbar>
+  <ion-list>
+		<ion-item *ngFor="let game of games" lines="none">
+      <!--ion-thumbnail slot="start">
+        <img src={{getStoreLogo(game.storeID)}}>
+      </ion-thumbnail-->
+      <ion-card style="width: 100%;">
+        <ion-card-header>
+          <ion-card-title>{{game.title}}</ion-card-title>
+          <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-label class="priceNormal">Normal Price {{game.normalPrice}}</ion-label>
+          <ion-label class="priceSale">Sale Price {{game.salePrice}}</ion-label>
+        </ion-card-content>
+      </ion-card>
+
+      <!--div style="margin: 8px;">
+        <ion-label class="title">{{game.title}}</ion-label>
+        <ion-label class="priceNormal">Normal Price {{game.normalPrice}}</ion-label>
+        <ion-label class="priceSale">Sale Price {{game.salePrice}}</ion-label>
+        <ion-label class="deal-on">On {{getStoreName(game.storeID)}}</ion-label>
+      </div-->
+    </ion-item>
+  </ion-list>
+
+  <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  size="small" (click)="scrollToTop()">
+      <ion-icon name="md-arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

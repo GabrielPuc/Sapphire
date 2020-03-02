@@ -9,7 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GameDetailModal } from './gameDetailModal/gameDetailModal.page';
+import { GameDetailModal } from './pages/gameDetailModal/gameDetailModal.page';
+import { CheapsharkProvider } from './providers/cheapshark'
 
 @NgModule({
   declarations: [AppComponent,GameDetailModal],
@@ -18,7 +19,8 @@ import { GameDetailModal } from './gameDetailModal/gameDetailModal.page';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    CheapsharkProvider
   ],
   bootstrap: [AppComponent]
 })

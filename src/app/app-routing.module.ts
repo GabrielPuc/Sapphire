@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)},
-  { path: 'storeDeals/:storeID/:storeName', loadChildren: './storeDeals/storeDeals.module#StoreDealsPageModule' }
+  {path: '', loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)},
+  { path: 'stores/:storeID/:storeName', loadChildren: './pages/storeDeals/storeDeals.module#StoreDealsPageModule' }
 ];
 @NgModule({
   imports: [
@@ -12,3 +12,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+ 

@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'deals',
     component: TabsPage,
     children: [
       {
@@ -28,25 +28,25 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'search',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../deals-search/deals-search.module').then(m => m.DealsSearchModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/stores',
+        redirectTo: '/deals/search',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/stores',
+    redirectTo: '/deals/search',
     pathMatch: 'full'
   }
 ];
