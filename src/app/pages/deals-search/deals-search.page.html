@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()"></ion-searchbar>
+  <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
   <ion-list>
 		<ion-item *ngFor="let game of games" lines="none">
       <!--ion-thumbnail slot="start">
