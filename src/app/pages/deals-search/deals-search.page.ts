@@ -20,6 +20,7 @@ export class DealsSearchPage {
   private lastPageReached = false;
   private scrollContent: any;
   private deepScroll = false;
+  private fail = false;
 
   private scrollDepthTriggered = false;
 
@@ -37,6 +38,7 @@ export class DealsSearchPage {
     resetList() {
      this.numberPage = 0;
      this.games = [];
+     this.fail = false;
     }
 
   getGames(): void {
@@ -46,8 +48,10 @@ export class DealsSearchPage {
       this.games.push.apply(this.games, response);
       this.numberPage += 1;
       console.log(response);
+      this.fail = this.games.length < 1;
     }, (error) => {
       alert('No data available');
+      this.fail = true;
     });
   }
 
@@ -105,7 +109,7 @@ export class DealsSearchPage {
   }
 
   onClear() {
-      this.games = [];
+      this.resetList();
   }
 
 }

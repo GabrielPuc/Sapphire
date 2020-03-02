@@ -8,6 +8,7 @@
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
+  <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
   <ion-list>
 		<ion-item *ngFor="let game of games" lines="none">
       <!--ion-thumbnail slot="start">
@@ -18,7 +19,7 @@
           <ion-card-title>{{game.title}}</ion-card-title>
           <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>
         </ion-card-header>
-      
+
         <ion-card-content>
           <ion-label class="priceNormal">Normal Price {{game.normalPrice}}</ion-label>
           <ion-label class="priceSale">Sale Price {{game.salePrice}}</ion-label>
