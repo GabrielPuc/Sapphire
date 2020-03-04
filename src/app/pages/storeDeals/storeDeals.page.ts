@@ -40,8 +40,8 @@ export class StoreDealsPage implements OnInit {
   }
 
   SearchDetailTitle(title) {
-    // tslint:disable-next-line:max-line-length
-    const treatedTitle = title.replace(/\!|\?|\:/g, '').replace(' - ', ' ').replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
+    const treatedTitle = title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
+        .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
     this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
     this.gameDetail = response;
     this.presentModal();

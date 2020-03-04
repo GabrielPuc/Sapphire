@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { StoreDeals } from './storeDeals.page';
+import { StoreDealsPage } from './storeDeals.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: StoreDeals }])
+    RouterModule.forChild([{ path: '', component: StoreDealsPage }])
   ],
-  declarations: [StoreDeals]
+  declarations: [StoreDealsPage]
 })
 export class StoreDealsPageModule {}
