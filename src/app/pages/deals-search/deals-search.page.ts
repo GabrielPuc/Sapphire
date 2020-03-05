@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { CheapsharkProvider } from 'src/app/providers/cheapshark';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { STORES_DATA } from 'src/app/constants/stores';
 
 @Component({
@@ -12,7 +13,8 @@ export class DealsSearchPage {
 
   constructor(
     private loadingController: LoadingController,
-    private cheapshark: CheapsharkProvider) {}
+    private cheapshark: CheapsharkProvider,
+    private iab: InAppBrowser) {}
   private searchTerm = '';
   private numberPage = 0;
   private games = [];
@@ -29,7 +31,7 @@ export class DealsSearchPage {
     if (this.searchTerm === '') {
       this.games = [];
     } else {
-      this.showLoader();
+      //this.showLoader();
       this.getGames();
       this.hideLoader();
     }
@@ -49,10 +51,12 @@ export class DealsSearchPage {
       this.numberPage += 1;
       console.log(response);
       this.fail = this.games.length < 1;
+      this.hideLoader();
     }, (error) => {
       alert('No data available');
       this.fail = true;
     });
+    this.hideLoader();
   }
 
   loadData(event) {
@@ -102,6 +106,11 @@ export class DealsSearchPage {
     const currentScrollDepth = $event.detail.scrollTop;
     this.deepScroll = currentScrollDepth > 200;
     // console.log({currentScrollDepth});
+  }
+
+  openDealURL(dealURL){
+    const browser = this.iab.create('https://www.cheapshark.com/redirect?dealID='+dealURL,'_system');
+    browser.show();
   }
 
   getStoreName(id) {

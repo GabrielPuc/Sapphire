@@ -8,9 +8,9 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./storeDeals/storeDeals.module": [
-		"./src/app/storeDeals/storeDeals.module.ts",
-		"storeDeals-storeDeals-module"
+	"./pages/storeDeals/storeDeals.module": [
+		"./src/app/pages/storeDeals/storeDeals.module.ts",
+		"pages-storeDeals-storeDeals-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -463,14 +463,14 @@ module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-ap
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/gameDetailModal/gameDetailModal.page.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/gameDetailModal/gameDetailModal.page.html ***!
-  \*************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/gameDetailModal/gameDetailModal.page.html":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/gameDetailModal/gameDetailModal.page.html ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"dismiss()\">Close</ion-button>\n    </ion-buttons>\n    <ion-title>\n      Detail\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item lines=\"none\">\n      <ion-label class=\"title\">{{gameDetail.name_original}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label class=\"score\">Metacritic Score: {{gameDetail.metacritic}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label style=\"white-space: normal;\" [innerHTML]=\"gameDetail.description\"></ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar class=\"toolbar\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"dismiss()\">Close</ion-button>\n    </ion-buttons>\n    <ion-title>\n      Detail\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item lines=\"none\">\n      <ion-label class=\"title\">{{gameDetail.name_original}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label class=\"score\">Metacritic Score: {{gameDetail.metacritic}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label style=\"white-space: normal;\" [innerHTML]=\"gameDetail.description\"></ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>"
 
 /***/ }),
 
@@ -491,8 +491,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', loadChildren: function () { return __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(function (m) { return m.TabsPageModule; }); } },
-    { path: 'storeDeals/:storeID/:storeName', loadChildren: './storeDeals/storeDeals.module#StoreDealsPageModule' }
+    { path: '', loadChildren: function () { return __webpack_require__.e(/*! import() | pages-tabs-tabs-module */ "pages-tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./pages/tabs/tabs.module */ "./src/app/pages/tabs/tabs.module.ts")).then(function (m) { return m.TabsPageModule; }); } },
+    { path: 'stores/:storeID/:storeName', loadChildren: './pages/storeDeals/storeDeals.module#StoreDealsPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -599,7 +599,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./gameDetailModal/gameDetailModal.page */ "./src/app/gameDetailModal/gameDetailModal.page.ts");
+/* harmony import */ var _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/gameDetailModal/gameDetailModal.page */ "./src/app/pages/gameDetailModal/gameDetailModal.page.ts");
+/* harmony import */ var _providers_cheapshark__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./providers/cheapshark */ "./src/app/providers/cheapshark.ts");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+
+
 
 
 
@@ -616,13 +620,15 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
-            entryComponents: [_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
+            entryComponents: [_pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
             providers: [
+                _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_12__["InAppBrowser"],
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
-                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
+                { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
+                _providers_cheapshark__WEBPACK_IMPORTED_MODULE_11__["CheapsharkProvider"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -634,21 +640,21 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/gameDetailModal/gameDetailModal.page.scss":
-/*!***********************************************************!*\
-  !*** ./src/app/gameDetailModal/gameDetailModal.page.scss ***!
-  \***********************************************************/
+/***/ "./src/app/pages/gameDetailModal/gameDetailModal.page.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/pages/gameDetailModal/gameDetailModal.page.scss ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n  font-size: 20px;\n}\n\n.score {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n}\n\n.priceNormal {\n  white-space: normal;\n  font-size: 12px;\n  color: darkred;\n}\n\n.priceSale {\n  white-space: normal;\n  font-size: 12px;\n  color: green;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZURldGFpbE1vZGFsL0Q6XFxQcm95c1xcUmVhY3RcXHNhcHBoaXJlL3NyY1xcYXBwXFxnYW1lRGV0YWlsTW9kYWxcXGdhbWVEZXRhaWxNb2RhbC5wYWdlLnNjc3MiLCJzcmMvYXBwL2dhbWVEZXRhaWxNb2RhbC9nYW1lRGV0YWlsTW9kYWwucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0ksbUJBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0FDQUo7O0FER0U7RUFDRSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxlQUFBO0VBQ0EsWUFBQTtBQ0FKIiwiZmlsZSI6InNyYy9hcHAvZ2FtZURldGFpbE1vZGFsL2dhbWVEZXRhaWxNb2RhbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi50aXRsZXtcbiAgICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIGNvbG9yOiBncmF5O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgfVxuXG4gIC5zY29yZXtcbiAgICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIGNvbG9yOiBncmF5O1xuICB9XG5cbi5wcmljZU5vcm1hbHtcbiAgICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBjb2xvcjogZGFya3JlZDtcbiAgfVxuXG4ucHJpY2VTYWxle1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiBncmVlbjtcbiAgfSIsIi50aXRsZSB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogZ3JheTtcbiAgZm9udC1zaXplOiAyMHB4O1xufVxuXG4uc2NvcmUge1xuICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6IGdyYXk7XG59XG5cbi5wcmljZU5vcm1hbCB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgY29sb3I6IGRhcmtyZWQ7XG59XG5cbi5wcmljZVNhbGUge1xuICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICBmb250LXNpemU6IDEycHg7XG4gIGNvbG9yOiBncmVlbjtcbn0iXX0= */"
+module.exports = ".title {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n  font-size: 20px;\n}\n\n.score {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n}\n\n.priceNormal {\n  white-space: normal;\n  font-size: 12px;\n  color: darkred;\n}\n\n.priceSale {\n  white-space: normal;\n  font-size: 12px;\n  color: green;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL0Q6XFxQcm95c1xcR2l0SHViXFxTYXBwaGlyZS9zcmNcXGFwcFxccGFnZXNcXGdhbWVEZXRhaWxNb2RhbFxcZ2FtZURldGFpbE1vZGFsLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL2dhbWVEZXRhaWxNb2RhbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNBSjs7QURHRTtFQUNFLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0FDQUo7O0FER0E7RUFDSSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxjQUFBO0FDQUo7O0FER0E7RUFDSSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9nYW1lRGV0YWlsTW9kYWwvZ2FtZURldGFpbE1vZGFsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnRpdGxle1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgY29sb3I6IGdyYXk7XG4gICAgZm9udC1zaXplOiAyMHB4O1xuICB9XG5cbiAgLnNjb3Jle1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgY29sb3I6IGdyYXk7XG4gIH1cblxuLnByaWNlTm9ybWFse1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiBkYXJrcmVkO1xuICB9XG5cbi5wcmljZVNhbGV7XG4gICAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgY29sb3I6IGdyZWVuO1xuICB9IiwiLnRpdGxlIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGNvbG9yOiBncmF5O1xuICBmb250LXNpemU6IDIwcHg7XG59XG5cbi5zY29yZSB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogZ3JheTtcbn1cblxuLnByaWNlTm9ybWFsIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBjb2xvcjogZGFya3JlZDtcbn1cblxuLnByaWNlU2FsZSB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgY29sb3I6IGdyZWVuO1xufSJdfQ== */"
 
 /***/ }),
 
-/***/ "./src/app/gameDetailModal/gameDetailModal.page.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/gameDetailModal/gameDetailModal.page.ts ***!
-  \*********************************************************/
+/***/ "./src/app/pages/gameDetailModal/gameDetailModal.page.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/pages/gameDetailModal/gameDetailModal.page.ts ***!
+  \***************************************************************/
 /*! exports provided: GameDetailModal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -683,13 +689,50 @@ var GameDetailModal = /** @class */ (function () {
     GameDetailModal = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-gameDetailModal',
-            template: __webpack_require__(/*! raw-loader!./gameDetailModal.page.html */ "./node_modules/raw-loader/index.js!./src/app/gameDetailModal/gameDetailModal.page.html"),
-            styles: [__webpack_require__(/*! ./gameDetailModal.page.scss */ "./src/app/gameDetailModal/gameDetailModal.page.scss")]
+            template: __webpack_require__(/*! raw-loader!./gameDetailModal.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/gameDetailModal/gameDetailModal.page.html"),
+            styles: [__webpack_require__(/*! ./gameDetailModal.page.scss */ "./src/app/pages/gameDetailModal/gameDetailModal.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
     ], GameDetailModal);
     return GameDetailModal;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/providers/cheapshark.ts":
+/*!*****************************************!*\
+  !*** ./src/app/providers/cheapshark.ts ***!
+  \*****************************************/
+/*! exports provided: CheapsharkProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheapsharkProvider", function() { return CheapsharkProvider; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var CheapsharkProvider = /** @class */ (function () {
+    function CheapsharkProvider(http) {
+        this.http = http;
+    }
+    CheapsharkProvider.prototype.getStoreDeals = function (gameTitle, pageNumber) {
+        return this.http.get('https://www.cheapshark.com/api/1.0/deals?title=' + gameTitle + '&pageSize=20&pageNumber=' + pageNumber + '&onSale=1&sortBy=Deal Rating');
+    };
+    CheapsharkProvider.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    CheapsharkProvider = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], CheapsharkProvider);
+    return CheapsharkProvider;
 }());
 
 
@@ -757,7 +800,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Proys\React\sapphire\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\Proys\GitHub\Sapphire\src\main.ts */"./src/main.ts");
 
 
 /***/ })

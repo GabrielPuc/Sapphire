@@ -14,7 +14,7 @@
       <!--ion-thumbnail slot="start">
         <img src={{getStoreLogo(game.storeID)}}>
       </ion-thumbnail-->
-      <ion-card style="width: 100%;">
+      <ion-card style="width: 100%;" (click)="openDealURL(game.dealID)">
         <ion-card-header>
           <ion-card-title>{{game.title}}</ion-card-title>
           <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>

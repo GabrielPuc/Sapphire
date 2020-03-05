@@ -1,20 +1,20 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["duration-duration-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/duration/duration.page.html":
-/*!***********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/duration/duration.page.html ***!
-  \***********************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/duration/duration.page.html":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/duration/duration.page.html ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      How Long To Beat\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar class=\"toolbar\">\n    <ion-title>\n      How Long To Beat\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content></ion-content>\n"
 
 /***/ }),
 
-/***/ "./src/app/duration/duration.module.ts":
-/*!*********************************************!*\
-  !*** ./src/app/duration/duration.module.ts ***!
-  \*********************************************/
+/***/ "./src/app/pages/duration/duration.module.ts":
+/*!***************************************************!*\
+  !*** ./src/app/pages/duration/duration.module.ts ***!
+  \***************************************************/
 /*! exports provided: DurationPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _duration_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./duration.page */ "./src/app/duration/duration.page.ts");
+/* harmony import */ var _duration_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./duration.page */ "./src/app/pages/duration/duration.page.ts");
 
 
 
@@ -53,21 +53,21 @@ DurationPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/duration/duration.page.scss":
-/*!*********************************************!*\
-  !*** ./src/app/duration/duration.page.scss ***!
-  \*********************************************/
+/***/ "./src/app/pages/duration/duration.page.scss":
+/*!***************************************************!*\
+  !*** ./src/app/pages/duration/duration.page.scss ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2R1cmF0aW9uL2R1cmF0aW9uLnBhZ2Uuc2NzcyJ9 */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2R1cmF0aW9uL2R1cmF0aW9uLnBhZ2Uuc2NzcyJ9 */"
 
 /***/ }),
 
-/***/ "./src/app/duration/duration.page.ts":
-/*!*******************************************!*\
-  !*** ./src/app/duration/duration.page.ts ***!
-  \*******************************************/
+/***/ "./src/app/pages/duration/duration.page.ts":
+/*!*************************************************!*\
+  !*** ./src/app/pages/duration/duration.page.ts ***!
+  \*************************************************/
 /*! exports provided: DurationPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -84,8 +84,8 @@ let DurationPage = class DurationPage {
 DurationPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-duration',
-        template: __webpack_require__(/*! raw-loader!./duration.page.html */ "./node_modules/raw-loader/index.js!./src/app/duration/duration.page.html"),
-        styles: [__webpack_require__(/*! ./duration.page.scss */ "./src/app/duration/duration.page.scss")]
+        template: __webpack_require__(/*! raw-loader!./duration.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/duration/duration.page.html"),
+        styles: [__webpack_require__(/*! ./duration.page.scss */ "./src/app/pages/duration/duration.page.scss")]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], DurationPage);

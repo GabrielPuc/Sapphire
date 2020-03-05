@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameDetailModal } from './pages/gameDetailModal/gameDetailModal.page';
 import { CheapsharkProvider } from './providers/cheapshark'
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent,GameDetailModal],
   entryComponents: [GameDetailModal],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    InAppBrowser,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
