@@ -117,6 +117,10 @@ export class DealsSearchPage {
     return STORES_DATA.find(i => i.storeID === id).storeName;
   }
 
+  getDiscount(saving){
+    return Number(saving).toFixed();
+  }
+
   onClear() {
       this.resetList();
   }

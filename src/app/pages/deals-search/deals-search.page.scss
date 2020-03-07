@@ -14,9 +14,47 @@
 .priceNormal{
     white-space: normal;
     color: darkred;
+    font-size: large;
   }
 
 .priceSale{
     white-space: normal;
     color: green;
+    font-size: x-large;
   }
+
+.dealRating{
+    white-space: normal;
+    color: green;
+  }  
+
+  .pricetag{
+    white-space:nowrap;
+    position:relative;
+    margin:0 5px 0 10px;
+    displaY:inline-block;
+    height:25px;
+    border-radius: 0 5px 5px 0;
+    padding: 0 5px 0 5px;
+    background:#2cc934;
+    border-top-width:1px;
+    border-bottom-width:1px;
+    color:#fff;
+    line-height:23px;
+  }
+  
+  .pricetag:before{
+    position:absolute;
+    content:"\25CF";
+    color:white;
+    text-shadow: 0 0 1px #333;
+    font-size:11px;
+    line-height:0px;
+    text-indent:12px;
+    left:-15px;
+    width: 1px;
+    height:0px;
+    border-right:14px solid #2cc934;
+    border-top:  13px solid transparent;
+    border-bottom:  13px solid transparent;
+  }  

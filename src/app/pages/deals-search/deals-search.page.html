@@ -11,28 +11,19 @@
   <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
   <ion-list>
 		<ion-item *ngFor="let game of games" lines="none">
-      <!--ion-thumbnail slot="start">
-        <img src={{getStoreLogo(game.storeID)}}>
-      </ion-thumbnail-->
-      <ion-card style="width: 100%;" (click)="openDealURL(game.dealID)">
+      <ion-card (click)="openDealURL(game.dealID)" mode="md" style="width: 100%;">
         <ion-card-header>
           <ion-card-title>{{game.title}}</ion-card-title>
           <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>
         </ion-card-header>
 
         <ion-card-content>
-          <ion-label class="priceNormal">Normal Price: {{game.normalPrice}}</ion-label>
-          <ion-label class="priceSale">Sale Price: {{game.salePrice}}</ion-label>
-          <ion-label class="priceSale">Deal Rating: {{game.dealRating}}</ion-label> 
+          <ion-label class="priceNormal"><s>{{game.normalPrice}}</s></ion-label>
+          <ion-label class="priceSale">{{game.salePrice}}  <span class="pricetag" *ngIf="game.isOnSale==1">{{getDiscount(game.savings)}}%</span></ion-label>
+          <!--ion-label class="dealRating">Deal Rating: {{game.dealRating}}</ion-label--> 
         </ion-card-content>
-      </ion-card>
 
-      <!--div style="margin: 8px;">
-        <ion-label class="title">{{game.title}}</ion-label>
-        <ion-label class="priceNormal">Normal Price {{game.normalPrice}}</ion-label>
-        <ion-label class="priceSale">Sale Price {{game.salePrice}}</ion-label>
-        <ion-label class="deal-on">On {{getStoreName(game.storeID)}}</ion-label>
-      </div-->
+      </ion-card>
     </ion-item>
   </ion-list>
 
