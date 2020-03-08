@@ -20,7 +20,12 @@
         <ion-card-content>
           <ion-label class="priceNormal"><s>{{game.normalPrice}}</s></ion-label>
           <ion-label class="priceSale">{{game.salePrice}}  <span class="pricetag" *ngIf="game.isOnSale==1">{{getDiscount(game.savings)}}%</span></ion-label>
-          <!--ion-label class="dealRating">Deal Rating: {{game.dealRating}}</ion-label--> 
+          <div class="ratingDiv">
+            <ion-label >Deal Rating:</ion-label>
+            <p  class="dealRating" [ngClass]="{'worst': game.dealRating >= 0 && game.dealRating < 5, 'average': game.dealRating >= 5 && game.dealRating < 9, 'best': game.dealRating >= 9}">{{game.dealRating}}
+            <i></i>
+            </p>
+          </div>
         </ion-card-content>
 
       </ion-card>
