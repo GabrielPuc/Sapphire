@@ -6,8 +6,8 @@ export class CheapsharkProvider {
   constructor(public http: HttpClient) {
   }
 
-  getStoreDeals(gameTitle,pageNumber){
-    return this.http.get('https://www.cheapshark.com/api/1.0/deals?title='+gameTitle+'&pageSize=20&pageNumber='+pageNumber+'&onSale=1&sortBy=Deal Rating');
+  getStoreDeals(gameTitle,pageNumber,filters){
+    return this.http.get('https://www.cheapshark.com/api/1.0/deals?title='+gameTitle+'&pageSize=20&pageNumber='+pageNumber+'&onSale='+filters.onSale+'&sortBy='+filters.sortBy);
   }
 
 }

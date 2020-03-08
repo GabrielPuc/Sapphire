@@ -3,6 +3,8 @@ import { LoadingController } from '@ionic/angular';
 import { CheapsharkProvider } from 'src/app/providers/cheapshark';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { STORES_DATA } from 'src/app/constants/stores';
+import { PopoverController } from '@ionic/angular';
+import { FilterSearch } from 'src/app/components/filter-search'
 
 @Component({
   selector: 'app-deals-search',
@@ -14,7 +16,9 @@ export class DealsSearchPage {
   constructor(
     private loadingController: LoadingController,
     private cheapshark: CheapsharkProvider,
-    private iab: InAppBrowser) {}
+    private iab: InAppBrowser,
+    private popOver: PopoverController) { }
+
   private searchTerm = '';
   private numberPage = 0;
   private games = [];
@@ -23,10 +27,14 @@ export class DealsSearchPage {
   private scrollContent: any;
   private deepScroll = false;
   private fail = false;
+  private filters = {
+    onSale: "1",
+    sortBy: "Deal Rating"
+  }
 
   private scrollDepthTriggered = false;
 
-    onSearch() {
+  onSearch() {
     this.resetList();
     if (this.searchTerm === '') {
       this.games = [];
@@ -37,25 +45,25 @@ export class DealsSearchPage {
     }
   }
 
-    resetList() {
-     this.numberPage = 0;
-     this.games = [];
-     this.fail = false;
-    }
+  resetList() {
+    this.numberPage = 0;
+    this.games = [];
+    this.fail = false;
+  }
 
   getGames(): void {
-    this.cheapshark.getStoreDeals(this.searchTerm, this.numberPage)
-    .subscribe((response) => {
-      this.lastPageReached = response === [];
-      this.games.push.apply(this.games, response);
-      this.numberPage += 1;
-      console.log(response);
-      this.fail = this.games.length < 1;
-      this.hideLoader();
-    }, (error) => {
-      alert('No data available');
-      this.fail = true;
-    });
+    this.cheapshark.getStoreDeals(this.searchTerm, this.numberPage,this.filters)
+      .subscribe((response) => {
+        this.lastPageReached = response === [];
+        this.games.push.apply(this.games, response);
+        this.numberPage += 1;
+        console.log(response);
+        this.fail = this.games.length < 1;
+        this.hideLoader();
+      }, (error) => {
+        alert('No data available');
+        this.fail = true;
+      });
     this.hideLoader();
   }
 
@@ -108,8 +116,39 @@ export class DealsSearchPage {
     // console.log({currentScrollDepth});
   }
 
-  openDealURL(dealURL){
-    const browser = this.iab.create('https://www.cheapshark.com/redirect?dealID='+dealURL,'_system');
+  async presentFilterPopover(event) {
+    const filterPopover = await this.popOver.create({
+      component: FilterSearch,
+      event: event,
+      translucent: true,
+      mode: "ios"
+    });
+    filterPopover.onDidDismiss()
+      .then((filtersSelected) => {
+        //console.log(filtersSelected)
+        //let filters = filtersSelected;
+        //console.log(filters.data.onSale);
+        this.applyFilters(filtersSelected);
+      });
+    return await filterPopover.present();
+  }
+
+  applyFilters(filters){
+    console.log(filters.data)
+      console.log(this.filters)
+    if(filters.data != undefined){
+      if(this.searchTerm !== ''){
+        this.filters = filters.data;
+        this.resetList();
+        this.getGames();
+      }
+    }else{
+      console.log('AYAYA')
+    }
+  }
+
+  openDealURL(dealURL) {
+    const browser = this.iab.create('https://www.cheapshark.com/redirect?dealID=' + dealURL, '_system');
     browser.show();
   }
 
@@ -117,12 +156,12 @@ export class DealsSearchPage {
     return STORES_DATA.find(i => i.storeID === id).storeName;
   }
 
-  getDiscount(saving){
+  getDiscount(saving) {
     return Number(saving).toFixed();
   }
 
   onClear() {
-      this.resetList();
+    this.resetList();
   }
 
 }

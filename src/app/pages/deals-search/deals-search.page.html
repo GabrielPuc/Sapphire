@@ -7,7 +7,12 @@
 </ion-header>
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
+  
+  
+  <ion-item>
+    <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
+    <ion-button color="success" end (click)="presentFilterPopover($event)"><ion-icon name="md-cog"></ion-icon></ion-button>
+  </ion-item>
   <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
   <ion-list>
 		<ion-item *ngFor="let game of games" lines="none">
@@ -38,7 +43,7 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll threshold="500px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
       loadingText="...">

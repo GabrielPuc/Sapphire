@@ -457,6 +457,17 @@ module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-ap
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/filter-search.html":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/filter-search.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-item>\r\n    <ion-label>Only show deals?</ion-label>\r\n    <ion-select [(ngModel)]=\"onSale\">\r\n        <ion-select-option value=\"1\">Yes</ion-select-option>\r\n        <ion-select-option value=\"0\">No</ion-select-option>\r\n    </ion-select>\r\n</ion-item>\r\n\r\n<ion-item>\r\n    <ion-label>Sort By</ion-label>\r\n    <ion-select [(ngModel)]=\"sortBy\">\r\n        <ion-select-option value=\"Deal Rating\">Deal Rating</ion-select-option>\r\n        <ion-select-option value=\"Savings\">Savings</ion-select-option>\r\n        <ion-select-option value=\"Price\">Price</ion-select-option>\r\n        <ion-select-option value=\"Release\">Release</ion-select-option>\r\n        <ion-select-option value=\"recent\">recent</ion-select-option>\r\n    </ion-select>\r\n</ion-item>\r\n\r\n<ion-button color=\"success\" (click)=\"dismiss()\">Apply</ion-button>\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/pages/gameDetailModal/gameDetailModal.page.html":
 /*!*******************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/pages/gameDetailModal/gameDetailModal.page.html ***!
@@ -591,6 +602,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/gameDetailModal/gameDetailModal.page */ "./src/app/pages/gameDetailModal/gameDetailModal.page.ts");
 /* harmony import */ var _providers_cheapshark__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./providers/cheapshark */ "./src/app/providers/cheapshark.ts");
 /* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/ngx/index.js");
+/* harmony import */ var _components_filter_search__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/filter-search */ "./src/app/components/filter-search.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
 
 
 
@@ -608,9 +623,9 @@ let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
-        entryComponents: [_pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
+        entryComponents: [_pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"]],
         providers: [
             _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_12__["InAppBrowser"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
@@ -621,6 +636,64 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/filter-search.scss":
+/*!***********************************************!*\
+  !*** ./src/app/components/filter-search.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvZmlsdGVyLXNlYXJjaC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/filter-search.ts":
+/*!*********************************************!*\
+  !*** ./src/app/components/filter-search.ts ***!
+  \*********************************************/
+/*! exports provided: FilterSearch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterSearch", function() { return FilterSearch; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+let FilterSearch = class FilterSearch {
+    constructor(popOver) {
+        this.popOver = popOver;
+        this.onSale = "1";
+        this.sortBy = "Deal Rating";
+    }
+    ;
+    dismiss() {
+        let filters = {
+            onSale: this.onSale,
+            sortBy: this.sortBy
+        };
+        this.popOver.dismiss(filters);
+    }
+};
+FilterSearch.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] }
+];
+FilterSearch = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'filter-search',
+        template: __webpack_require__(/*! raw-loader!./filter-search.html */ "./node_modules/raw-loader/index.js!./src/app/components/filter-search.html"),
+        styles: [__webpack_require__(/*! ./filter-search.scss */ "./src/app/components/filter-search.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"]])
+], FilterSearch);
 
 
 
@@ -707,8 +780,8 @@ let CheapsharkProvider = class CheapsharkProvider {
     constructor(http) {
         this.http = http;
     }
-    getStoreDeals(gameTitle, pageNumber) {
-        return this.http.get('https://www.cheapshark.com/api/1.0/deals?title=' + gameTitle + '&pageSize=20&pageNumber=' + pageNumber + '&onSale=1&sortBy=Deal Rating');
+    getStoreDeals(gameTitle, pageNumber, filters) {
+        return this.http.get('https://www.cheapshark.com/api/1.0/deals?title=' + gameTitle + '&pageSize=20&pageNumber=' + pageNumber + '&onSale=' + filters.onSale + '&sortBy=' + filters.sortBy);
     }
 };
 CheapsharkProvider.ctorParameters = () => [
