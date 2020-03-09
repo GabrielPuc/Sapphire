@@ -39,7 +39,7 @@ export class DealsSearchPage {
     if (this.searchTerm === '') {
       this.games = [];
     } else {
-      //this.showLoader();
+      // this.showLoader();
       this.getGames();
       this.hideLoader();
     }
@@ -125,25 +125,25 @@ export class DealsSearchPage {
     });
     filterPopover.onDidDismiss()
       .then((filtersSelected) => {
-        //console.log(filtersSelected)
-        //let filters = filtersSelected;
-        //console.log(filters.data.onSale);
+        // console.log(filtersSelected)
+        // let filters = filtersSelected;
+        // console.log(filters.data.onSale);
         this.applyFilters(filtersSelected);
       });
     return await filterPopover.present();
   }
 
   applyFilters(filters){
-    console.log(filters.data)
-      console.log(this.filters)
-    if(filters.data != undefined){
-      if(this.searchTerm !== ''){
+    console.log(filters.data);
+    console.log(this.filters);
+    if (filters.data !== undefined) {
+      if (this.searchTerm !== '') {
         this.filters = filters.data;
         this.resetList();
         this.getGames();
       }
-    }else{
-      console.log('AYAYA')
+    } else {
+      console.log('AYAYA');
     }
   }
 

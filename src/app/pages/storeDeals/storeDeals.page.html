@@ -11,12 +11,16 @@
 
 <ion-content>
     <ion-list>
-      <ion-item *ngFor="let deal of deals" (click)="SearchDetailTitle(deal.title)">
+      <ion-item *ngFor="let deal of deals" (click)="searchDetail(deal)">
         <div style="margin: 8px;">
           <ion-label class="title">{{deal.title}}</ion-label>
           <br>
           <ion-label class="priceNormal">Normal Price {{deal.normalPrice}}</ion-label>
           <ion-label class="priceSale">Sale Price {{deal.salePrice}}</ion-label>
+          <ion-label class="ratingDiv">
+              <p class="dealRating" [ngClass]="{'worst': deal.dealRating >= 0 && deal.dealRating < 5, 'average': deal.dealRating >= 5 && deal.dealRating < 9, 'best': deal.dealRating >= 9}">Deal Rating: {{deal.dealRating}}
+              <i></i>
+          </p></ion-label>
         </div>
       </ion-item>
     </ion-list>

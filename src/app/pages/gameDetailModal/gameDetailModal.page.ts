@@ -9,22 +9,22 @@ import { ModalController } from '@ionic/angular';
   templateUrl: 'gameDetailModal.page.html',
   styleUrls: ['gameDetailModal.page.scss']
 })
-export class GameDetailModal {
+export class GameDetailModalPage {
 
-  private gameDetail:any;
+  private gameDetail: any;
+  private game: any;
 
   constructor(
-    private navParams: NavParams,
-    private modalController: ModalController) {
-      this.gameDetail = navParams.get('gameDetail');
-      //console.log(navParams.get('gameDetail'));
+      private navParams: NavParams,
+      private modalController: ModalController) {
+    this.gameDetail = navParams.get('gameDetail');
+    // console.log(navParams.get('gameDetail'));
     }
-  
     dismiss() {
       // using the injected ModalController this page
       // can "dismiss" itself and optionally pass back data
       this.modalController.dismiss({
-        'dismissed': true
+        dismissed: true
       });
     }
 

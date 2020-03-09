@@ -9,15 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GameDetailModal } from './pages/gameDetailModal/gameDetailModal.page';
+import { GameDetailModalPage } from './pages/gameDetailModal/gameDetailModal.page';
 import { CheapsharkProvider } from './providers/cheapshark'
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { FilterSearch } from './components/filter-search'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 @NgModule({
-  declarations: [AppComponent,GameDetailModal,FilterSearch],
-  entryComponents: [GameDetailModal,FilterSearch],
+  declarations: [AppComponent,GameDetailModalPage,FilterSearch],
+  entryComponents: [GameDetailModalPage,FilterSearch],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,ReactiveFormsModule],
   providers: [
     InAppBrowser,

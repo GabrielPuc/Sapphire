@@ -16,3 +16,42 @@
     font-size: 12px;
     color: green;
   }
+.ratingDiv {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  text-align: center;
+}
+
+.dealRating.best i{
+
+  content: '*';
+  width: 25px;
+  height: 25px;
+  background-image: url("/assets/imgs/sp3.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}
+
+.dealRating.average i{
+
+  content: '*';
+  width: 25px;
+  height: 25px;
+  background-image: url("/assets/imgs/sp2.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}
+
+.dealRating.worst i{
+
+  content: '*';
+  width: 25px;
+  height: 25px;
+  background-image: url("/assets/imgs/sp1.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ModalController} from '@ionic/angular';
-import { GameDetailModal } from '../gameDetailModal/gameDetailModal.page';
+import { GameDetailModalPage } from '../gameDetailModal/gameDetailModal.page';
 
 @Component({
   selector: 'app-storeDeals',
@@ -14,7 +14,6 @@ export class StoreDealsPage implements OnInit {
   private deals: any = [];
   private storeName: string;
   private storeID: string;
-  private gameDetail: any;
   private numberPage = 0;
   constructor(
     private router: ActivatedRoute,
@@ -39,12 +38,11 @@ export class StoreDealsPage implements OnInit {
     });
   }
 
-  SearchDetailTitle(title) {
-    const treatedTitle = title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
+  searchDetail(deal) {
+    const treatedTitle = deal.title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
         .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
     this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
-    this.gameDetail = response;
-    this.presentModal();
+    this.presentModal(deal, response);
     }, (error) => { alert('No data available'); });
   }
 
@@ -62,11 +60,12 @@ export class StoreDealsPage implements OnInit {
     }, 500);
   }
 
-  async presentModal() {
+  async presentModal(deal, detail) {
     const modal = await this.modalController.create({
-      component: GameDetailModal,
+      component: GameDetailModalPage,
       componentProps: {
-        gameDetail: this.gameDetail
+        game: deal,
+        gameDetail: detail
       }
     });
     return await modal.present();
