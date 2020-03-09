@@ -12,12 +12,12 @@ import { ModalController } from '@ionic/angular';
 export class GameDetailModalPage {
 
   private gameDetail: any;
-  private game: any;
 
   constructor(
       private navParams: NavParams,
       private modalController: ModalController) {
     this.gameDetail = navParams.get('gameDetail');
+    // console.log(this.gameDetail);
     // console.log(navParams.get('gameDetail'));
     }
     dismiss() {

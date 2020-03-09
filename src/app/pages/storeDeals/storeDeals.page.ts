@@ -41,9 +41,17 @@ export class StoreDealsPage implements OnInit {
   searchDetail(deal) {
     const treatedTitle = deal.title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
         .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
+    let detail;
     this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
-    this.presentModal(deal, response);
-    }, (error) => { alert('No data available'); });
+      detail = response;
+      if (detail.metacritic === null) {
+        detail.metacritic = deal.metacriticScore;
+      }
+    }, (error) => {
+      detail = {background_image: deal.thumb, metacritic: deal.metacriticScore, description: 'Forced by Roberto Gil',
+      name_original: deal.title}  ;
+      this.presentModal(detail);
+    }, () => this.presentModal(detail));
   }
 
   loadData(event) {
@@ -60,11 +68,10 @@ export class StoreDealsPage implements OnInit {
     }, 500);
   }
 
-  async presentModal(deal, detail) {
+  async presentModal(detail) {
     const modal = await this.modalController.create({
       component: GameDetailModalPage,
       componentProps: {
-        game: deal,
         gameDetail: detail
       }
     });
