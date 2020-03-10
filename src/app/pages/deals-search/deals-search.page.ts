@@ -52,7 +52,7 @@ export class DealsSearchPage {
   }
 
   getGames(): void {
-    this.cheapshark.getStoreDeals(this.searchTerm, this.numberPage,this.filters)
+    this.cheapshark.getStoreDeals(this.searchTerm, this.numberPage, this.filters)
       .subscribe((response) => {
         this.lastPageReached = response === [];
         this.games.push.apply(this.games, response);
@@ -133,7 +133,7 @@ export class DealsSearchPage {
     return await filterPopover.present();
   }
 
-  applyFilters(filters){
+  applyFilters(filters) {
     console.log(filters.data);
     console.log(this.filters);
     if (filters.data !== undefined) {

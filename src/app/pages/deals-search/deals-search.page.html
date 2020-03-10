@@ -7,46 +7,53 @@
 </ion-header>
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  
-  
-  <ion-item>
-    <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
-    <ion-button color="success" end (click)="presentFilterPopover($event)"><ion-icon name="md-cog"></ion-icon></ion-button>
-  </ion-item>
-  <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
-  <ion-list>
-		<ion-item *ngFor="let game of games" lines="none">
-      <ion-card (click)="openDealURL(game.dealID)" mode="md" style="width: 100%;">
-        <ion-card-header>
-          <ion-card-title>{{game.title}}</ion-card-title>
-          <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-          <ion-label class="priceNormal"><s>{{game.normalPrice}}</s></ion-label>
-          <ion-label class="priceSale">{{game.salePrice}}  <span class="pricetag" *ngIf="game.isOnSale==1">{{getDiscount(game.savings)}}%</span></ion-label>
-          <div class="ratingDiv">
-            <ion-label >Deal Rating:</ion-label>
-            <p  class="dealRating" [ngClass]="{'worst': game.dealRating >= 0 && game.dealRating < 5, 'average': game.dealRating >= 5 && game.dealRating < 9, 'best': game.dealRating >= 9}">{{game.dealRating}}
-            <i></i>
-            </p>
-          </div>
-        </ion-card-content>
-
-      </ion-card>
+  <div class="background-rainbow">
+    <ion-item>
+      <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()"
+        (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
+      <ion-button color="success" end (click)="presentFilterPopover($event)">
+        <ion-icon name="md-cog"></ion-icon>
+      </ion-button>
     </ion-item>
-  </ion-list>
+    <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
+    <ion-list style="background: transparent !important;">
 
-  <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button  size="small" (click)="scrollToTop()">
-      <ion-icon name="md-arrow-dropup"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+      <ion-item *ngFor="let game of games" lines="none">
+        <ion-card (click)="openDealURL(game.dealID)" mode="md" style="width: 100%;">
+          <ion-card-header>
+            <ion-card-title>{{game.title}}</ion-card-title>
+            <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>
+          </ion-card-header>
 
-  <ion-infinite-scroll threshold="500px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+          <ion-card-content>
+            <ion-label class="priceNormal"><s>{{game.normalPrice}}</s></ion-label>
+            <ion-label class="priceSale">{{game.salePrice}} <span class="pricetag"
+                *ngIf="game.isOnSale==1">{{getDiscount(game.savings)}}%</span></ion-label>
+            <div class="ratingDiv">
+              <ion-label>Deal Rating:</ion-label>
+              <p class="dealRating"
+                [ngClass]="{'worst': game.dealRating >= 0 && game.dealRating < 5, 'average': game.dealRating >= 5 && game.dealRating < 9, 'best': game.dealRating >= 9}">
+                {{game.dealRating}}
+                <i></i>
+              </p>
+            </div>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button size="small" (click)="scrollToTop()">
+        <ion-icon name="md-arrow-dropup"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-infinite-scroll threshold="500px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
 </ion-content>

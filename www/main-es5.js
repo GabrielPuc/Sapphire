@@ -481,7 +481,7 @@ module.exports = "<ion-item>\r\n    <ion-label>Only show deals?</ion-label>\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar class=\"toolbar\">\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"dismiss()\">Close</ion-button>\n    </ion-buttons>\n    <ion-title>\n      Detail\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-item lines=\"none\">\n      <ion-label class=\"title\">{{gameDetail.name_original}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label class=\"score\">Metacritic Score: {{gameDetail.metacritic}}</ion-label>\n    </ion-item>\n    <ion-item lines=\"none\">\n      <ion-label style=\"white-space: normal;\" [innerHTML]=\"gameDetail.description\"></ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar class=\"toolbar\">\r\n    <ion-buttons slot=\"end\">\r\n      <ion-button (click)=\"dismiss()\">Close</ion-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      Detail\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-list>\r\n    <ion-item lines=\"none\">\r\n      <ion-label class=\"title\">{{gameDetail.name_original}}</ion-label>\r\n    </ion-item>\r\n    <ion-img src=\"{{gameDetail.background_image}}\"></ion-img>\r\n    <ion-item lines=\"none\" *ngIf=\"gameDetail.metacritic !== null && gameDetail.metacritic !== undefined && gameDetail.metacritic !== ''\">\r\n      <ion-label class=\"score\">Metacritic score: <span class=\"circle\" [ngClass]=\"{'bad': gameDetail.metacritic >= 0 && gameDetail.metacritic < 50,\r\n       'oof': gameDetail.metacritic >= 50 && gameDetail.metacritic < 65, 'meh': gameDetail.metacritic >= 65 && gameDetail.metacritic < 75,\r\n       'good': gameDetail.metacritic >= 75}\"> {{gameDetail.metacritic}}\r\n      </span></ion-label>\r\n    </ion-item>\r\n    <ion-item lines=\"none\">\r\n      <ion-label style=\"white-space: normal;\" [innerHTML]=\"gameDetail.description\"></ion-label>\r\n    </ion-item>\r\n  </ion-list>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -635,8 +635,8 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
-            entryComponents: [_pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModal"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModalPage"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
+            entryComponents: [_pages_gameDetailModal_gameDetailModal_page__WEBPACK_IMPORTED_MODULE_10__["GameDetailModalPage"], _components_filter_search__WEBPACK_IMPORTED_MODULE_13__["FilterSearch"]],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"]],
             providers: [
                 _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_12__["InAppBrowser"],
@@ -721,7 +721,7 @@ var FilterSearch = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n  font-size: 20px;\n}\n\n.score {\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n}\n\n.priceNormal {\n  white-space: normal;\n  font-size: 12px;\n  color: darkred;\n}\n\n.priceSale {\n  white-space: normal;\n  font-size: 12px;\n  color: green;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL0Q6XFxQcm95c1xcR2l0SHViXFxTYXBwaGlyZS9zcmNcXGFwcFxccGFnZXNcXGdhbWVEZXRhaWxNb2RhbFxcZ2FtZURldGFpbE1vZGFsLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL2dhbWVEZXRhaWxNb2RhbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNBSjs7QURHRTtFQUNFLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0FDQUo7O0FER0E7RUFDSSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxjQUFBO0FDQUo7O0FER0E7RUFDSSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9nYW1lRGV0YWlsTW9kYWwvZ2FtZURldGFpbE1vZGFsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnRpdGxle1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgY29sb3I6IGdyYXk7XG4gICAgZm9udC1zaXplOiAyMHB4O1xuICB9XG5cbiAgLnNjb3Jle1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgY29sb3I6IGdyYXk7XG4gIH1cblxuLnByaWNlTm9ybWFse1xuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiBkYXJrcmVkO1xuICB9XG5cbi5wcmljZVNhbGV7XG4gICAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgY29sb3I6IGdyZWVuO1xuICB9IiwiLnRpdGxlIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGNvbG9yOiBncmF5O1xuICBmb250LXNpemU6IDIwcHg7XG59XG5cbi5zY29yZSB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogZ3JheTtcbn1cblxuLnByaWNlTm9ybWFsIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBjb2xvcjogZGFya3JlZDtcbn1cblxuLnByaWNlU2FsZSB7XG4gIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgY29sb3I6IGdyZWVuO1xufSJdfQ== */"
+module.exports = ".title {\n  white-space: normal;\n  font-weight: bold;\n  color: blue;\n  font-size: 20px;\n}\n\n.score {\n  content: \"*\";\n  white-space: normal;\n  font-weight: bold;\n  color: gray;\n  display: inline-block;\n  background-repeat: round;\n  vertical-align: middle;\n}\n\n.priceNormal {\n  white-space: normal;\n  font-size: 12px;\n  color: darkred;\n}\n\n.priceSale {\n  white-space: normal;\n  font-size: 12px;\n  color: green;\n}\n\n.circle {\n  margin-left: 1em;\n  margin-right: 1em;\n  width: 1.5em;\n  height: 1.5em;\n  border-radius: 1em;\n  font-size: 1em;\n  color: #fff;\n  line-height: 1.5em;\n  display: inline-block;\n  text-align: center;\n  vertical-align: middle;\n  font-weight: bold;\n}\n\n.circle.good {\n  background: lawngreen;\n}\n\n.circle.meh {\n  background: yellow;\n}\n\n.circle.oof {\n  background: orange;\n}\n\n.circle.bad {\n  background: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL0Q6XFxQcm95c1xcR2l0SHViXFxTYXBwaGlyZS9zcmNcXGFwcFxccGFnZXNcXGdhbWVEZXRhaWxNb2RhbFxcZ2FtZURldGFpbE1vZGFsLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvZ2FtZURldGFpbE1vZGFsL2dhbWVEZXRhaWxNb2RhbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNBSjs7QURHQTtFQUNJLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLHFCQUFBO0VBQ0Esd0JBQUE7RUFDQSxzQkFBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQ0FKOztBREdBO0VBQ0ksbUJBQUE7RUFDQSxlQUFBO0VBQ0EsWUFBQTtBQ0FKOztBREdBO0VBQ0UsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxjQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxrQkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUJBQUE7QUNBRjs7QURHQTtFQUNBLHFCQUFBO0FDQUE7O0FERUE7RUFDQSxrQkFBQTtBQ0NBOztBRENBO0VBQ0Esa0JBQUE7QUNFQTs7QURBQTtFQUNBLGVBQUE7QUNHQSIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dhbWVEZXRhaWxNb2RhbC9nYW1lRGV0YWlsTW9kYWwucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi50aXRsZXtcclxuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOiBibHVlO1xyXG4gICAgZm9udC1zaXplOiAyMHB4O1xyXG4gIH1cclxuXHJcbi5zY29yZXtcclxuICAgIGNvbnRlbnQ6ICcqJztcclxuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOiBncmF5O1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IHJvdW5kO1xyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICB9XHJcblxyXG4ucHJpY2VOb3JtYWx7XHJcbiAgICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgY29sb3I6IGRhcmtyZWQ7XHJcbiAgfVxyXG5cclxuLnByaWNlU2FsZXtcclxuICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBjb2xvcjogZ3JlZW47XHJcbiAgfVxyXG5cclxuLmNpcmNsZSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDFlbTtcclxuICBtYXJnaW4tcmlnaHQ6IDFlbTtcclxuICB3aWR0aDogMS41ZW07XHJcbiAgaGVpZ2h0OiAxLjVlbTtcclxuICBib3JkZXItcmFkaXVzOiAxZW07XHJcbiAgZm9udC1zaXplOiAxZW07XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgbGluZS1oZWlnaHQ6IDEuNWVtO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmNpcmNsZS5nb29ke1xyXG5iYWNrZ3JvdW5kOiBsYXduZ3JlZW47XHJcbn1cclxuLmNpcmNsZS5tZWh7XHJcbmJhY2tncm91bmQ6IHllbGxvdztcclxufVxyXG4uY2lyY2xlLm9vZntcclxuYmFja2dyb3VuZDogb3JhbmdlO1xyXG59XHJcbi5jaXJjbGUuYmFke1xyXG5iYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuIiwiLnRpdGxlIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGNvbG9yOiBibHVlO1xuICBmb250LXNpemU6IDIwcHg7XG59XG5cbi5zY29yZSB7XG4gIGNvbnRlbnQ6IFwiKlwiO1xuICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6IGdyYXk7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IHJvdW5kO1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xufVxuXG4ucHJpY2VOb3JtYWwge1xuICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICBmb250LXNpemU6IDEycHg7XG4gIGNvbG9yOiBkYXJrcmVkO1xufVxuXG4ucHJpY2VTYWxlIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5jaXJjbGUge1xuICBtYXJnaW4tbGVmdDogMWVtO1xuICBtYXJnaW4tcmlnaHQ6IDFlbTtcbiAgd2lkdGg6IDEuNWVtO1xuICBoZWlnaHQ6IDEuNWVtO1xuICBib3JkZXItcmFkaXVzOiAxZW07XG4gIGZvbnQtc2l6ZTogMWVtO1xuICBjb2xvcjogI2ZmZjtcbiAgbGluZS1oZWlnaHQ6IDEuNWVtO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbi5jaXJjbGUuZ29vZCB7XG4gIGJhY2tncm91bmQ6IGxhd25ncmVlbjtcbn1cblxuLmNpcmNsZS5tZWgge1xuICBiYWNrZ3JvdW5kOiB5ZWxsb3c7XG59XG5cbi5jaXJjbGUub29mIHtcbiAgYmFja2dyb3VuZDogb3JhbmdlO1xufVxuXG4uY2lyY2xlLmJhZCB7XG4gIGJhY2tncm91bmQ6IHJlZDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -729,12 +729,12 @@ module.exports = ".title {\n  white-space: normal;\n  font-weight: bold;\n  colo
 /*!***************************************************************!*\
   !*** ./src/app/pages/gameDetailModal/gameDetailModal.page.ts ***!
   \***************************************************************/
-/*! exports provided: GameDetailModal */
+/*! exports provided: GameDetailModalPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameDetailModal", function() { return GameDetailModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameDetailModalPage", function() { return GameDetailModalPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
@@ -742,25 +742,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var GameDetailModal = /** @class */ (function () {
-    function GameDetailModal(navParams, modalController) {
+var GameDetailModalPage = /** @class */ (function () {
+    function GameDetailModalPage(navParams, modalController) {
         this.navParams = navParams;
         this.modalController = modalController;
         this.gameDetail = navParams.get('gameDetail');
-        //console.log(navParams.get('gameDetail'));
+        // console.log(this.gameDetail);
+        // console.log(navParams.get('gameDetail'));
     }
-    GameDetailModal.prototype.dismiss = function () {
+    GameDetailModalPage.prototype.dismiss = function () {
         // using the injected ModalController this page
         // can "dismiss" itself and optionally pass back data
         this.modalController.dismiss({
-            'dismissed': true
+            dismissed: true
         });
     };
-    GameDetailModal.ctorParameters = function () { return [
+    GameDetailModalPage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }
     ]; };
-    GameDetailModal = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    GameDetailModalPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-gameDetailModal',
             template: __webpack_require__(/*! raw-loader!./gameDetailModal.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/gameDetailModal/gameDetailModal.page.html"),
@@ -768,8 +769,8 @@ var GameDetailModal = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
-    ], GameDetailModal);
-    return GameDetailModal;
+    ], GameDetailModalPage);
+    return GameDetailModalPage;
 }());
 
 

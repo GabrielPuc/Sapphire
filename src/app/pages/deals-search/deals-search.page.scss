@@ -1,73 +1,71 @@
+.title {
+  white-space: normal;
+  color: gray;
+  font-weight: bold;
+  font-size: large;
+}
 
-.title{
-    white-space: normal;
-    color: gray;
-    font-weight: bold;
-    font-size: large;
-  }
+.deal-on {
+  white-space: normal;
+  color: gray;
+}
 
-.deal-on{
-    white-space: normal;
-    color: gray;
-  }  
+.priceNormal {
+  white-space: normal;
+  color: darkred;
+  font-size: large;
+}
 
-.priceNormal{
-    white-space: normal;
-    color: darkred;
-    font-size: large;
-  }
+.priceSale {
+  white-space: normal;
+  color: green;
+  font-size: x-large;
+}
 
-.priceSale{
-    white-space: normal;
-    color: green;
-    font-size: x-large;
-  }
+.dealRating {
+  white-space: normal;
+  color: green;
+}
 
-.dealRating{
-    white-space: normal;
-    color: green;
-  }  
+.pricetag {
+  white-space: nowrap;
+  position: relative;
+  margin: 0 5px 0 10px;
+  display: inline-block;
+  height: 25px;
+  border-radius: 0 5px 5px 0;
+  padding: 0 5px 0 5px;
+  background: #2cc934;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  color: #fff;
+  line-height: 23px;
+}
 
-  .pricetag{
-    white-space:nowrap;
-    position:relative;
-    margin:0 5px 0 10px;
-    displaY:inline-block;
-    height:25px;
-    border-radius: 0 5px 5px 0;
-    padding: 0 5px 0 5px;
-    background:#2cc934;
-    border-top-width:1px;
-    border-bottom-width:1px;
-    color:#fff;
-    line-height:23px;
-  }
-  
-  .pricetag:before{
-    position:absolute;
-    content:"\25CF";
-    color:white;
-    text-shadow: 0 0 1px #333;
-    font-size:11px;
-    line-height:0px;
-    text-indent:12px;
-    left:-15px;
-    width: 1px;
-    height:0px;
-    border-right:14px solid #2cc934;
-    border-top:  13px solid transparent;
-    border-bottom:  13px solid transparent;
-  }
-  .ratingDiv {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    text-align: center;
-  }
+.pricetag:before {
+  position: absolute;
+  content: "\25CF";
+  color: white;
+  text-shadow: 0 0 1px #333;
+  font-size: 11px;
+  line-height: 0px;
+  text-indent: 12px;
+  left: -15px;
+  width: 1px;
+  height: 0px;
+  border-right: 14px solid #2cc934;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+}
+.ratingDiv {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  text-align: center;
+}
 
-.dealRating.best i{
-
-  content: '*';
+.dealRating.best i {
+  content: "*";
   width: 25px;
   height: 25px;
   background-image: url("/assets/imgs/sp3.png");
@@ -76,9 +74,8 @@
   vertical-align: middle;
 }
 
-.dealRating.average i{
-
-  content: '*';
+.dealRating.average i {
+  content: "*";
   width: 25px;
   height: 25px;
   background-image: url("/assets/imgs/sp2.png");
@@ -87,13 +84,20 @@
   vertical-align: middle;
 }
 
-.dealRating.worst i{
-
-  content: '*';
+.dealRating.worst i {
+  content: "*";
   width: 25px;
   height: 25px;
   background-image: url("/assets/imgs/sp1.png");
   display: inline-block;
   background-repeat: round;
   vertical-align: middle;
+}
+
+ion-item {
+  --ion-background-color: transparent;
+}
+
+ion-card {
+  background-color: #fff;
 }
