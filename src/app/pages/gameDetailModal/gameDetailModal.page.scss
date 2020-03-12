@@ -16,24 +16,13 @@
     vertical-align: middle;
   }
 
-.priceNormal{
-    white-space: normal;
-    font-size: 12px;
-    color: darkred;
-  }
-
-.priceSale{
-    white-space: normal;
-    font-size: 12px;
-    color: green;
-  }
-
 .circle {
-  margin-left: 1em;
-  margin-right: 1em;
+  background: gainsboro;
+  margin-left: 1.1em;
+  margin-right: 1.1em;
   width: 1.5em;
   height: 1.5em;
-  border-radius: 1em;
+  border-radius: 1.1em;
   font-size: 1em;
   color: #fff;
   line-height: 1.5em;
@@ -54,4 +43,81 @@ background: orange;
 }
 .circle.bad{
 background: red;
+}
+
+
+.priceNormal {
+  white-space: normal;
+  color: darkred;
+  font-size: large;
+}
+
+.priceSale {
+  white-space: normal;
+  color: green;
+  font-size: x-large;
+}
+
+.pricetag {
+  white-space: nowrap;
+  position: relative;
+  margin: 0 5px 0 10px;
+  display: inline-block;
+  height: 25px;
+  border-radius: 0 5px 5px 0;
+  padding: 0 5px 0 5px;
+  background: #2cc934;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  color: #fff;
+  line-height: 23px;
+}
+
+.pricetag:before {
+  position: absolute;
+  content: "\25CF";
+  color: white;
+  text-shadow: 0 0 1px #333;
+  font-size: 11px;
+  line-height: 0px;
+  text-indent: 12px;
+  left: -15px;
+  width: 1px;
+  height: 0px;
+  border-right: 14px solid #2cc934;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+}
+
+.dealRating.best i{
+
+  content: '*';
+  width: 4em;
+  height: 4em;
+  background-image: url("/assets/imgs/sp3.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}
+
+.dealRating.average i{
+
+  content: '*';
+  width: 4em;
+  height: 4em;
+  background-image: url("/assets/imgs/sp2.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}
+
+.dealRating.worst i{
+
+  content: '*';
+  width: 4em;
+  height: 4em;
+  background-image: url("/assets/imgs/sp1.png");
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
 }

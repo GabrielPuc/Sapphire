@@ -44,16 +44,16 @@
 
     </ion-list>
 
-    <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button size="small" (click)="scrollToTop()">
-        <ion-icon name="md-arrow-dropup"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+
 
     <ion-infinite-scroll threshold="500px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="...">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </div>
-
+  <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="scrollToTop()">
+      <ion-icon name="md-arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

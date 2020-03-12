@@ -24,5 +24,14 @@
     <ion-item lines="none">
       <ion-label style="white-space: normal;" [innerHTML]="gameDetail.description"></ion-label>
     </ion-item>
+   <ion-item>
+     <ion-label class="priceNormal"><s>Price: {{deal.normalPrice}}</s></ion-label>
+     <ion-label class="priceSale">Deal: {{deal.salePrice}} <span class="pricetag" *ngIf="deal.isOnSale==1">{{getDiscount(deal.savings)}}%</span></ion-label>
+     <ion-label class="ratingDiv">
+       <p class="dealRating" [ngClass]="{'worst': deal.dealRating >= 0 && deal.dealRating < 5, 'average': deal.dealRating >= 5 && deal.dealRating < 9, 'best': deal.dealRating >= 9}">
+         <i></i>
+       </p></ion-label>
+     <ion-button (click)="openDealURL(deal.dealID)" >Go to Deal</ion-button>
+   </ion-item>
   </ion-list>
 </ion-content>

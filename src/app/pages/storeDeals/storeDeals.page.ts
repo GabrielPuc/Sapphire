@@ -44,14 +44,20 @@ export class StoreDealsPage implements OnInit {
     let detail;
     this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
       detail = response;
-      if (detail.metacritic === null) {
-        detail.metacritic = deal.metacriticScore;
+      if (detail.metacritic === null || detail.metacritic < 1) {
+        const score = deal.metacriticScore;
+        score > 0 ? deal.metacritic = score : detail.metacritic = 'unknown';
       }
     }, (error) => {
-      detail = {background_image: deal.thumb, metacritic: deal.metacriticScore, description: 'Forced by Roberto Gil',
+      let score = deal.metacriticScore;
+      if (score <= 0) {
+        score = 'tbd';
+      }
+      detail = {background_image: deal.thumb, metacritic: score,
+        description: 'Please, go to the Deal page if you want to know more details about this game.',
       name_original: deal.title}  ;
-      this.presentModal(detail);
-    }, () => this.presentModal(detail));
+      this.presentModal(detail, deal);
+    }, () => this.presentModal(detail, deal));
   }
 
   loadData(event) {
@@ -68,11 +74,12 @@ export class StoreDealsPage implements OnInit {
     }, 500);
   }
 
-  async presentModal(detail) {
+  async presentModal(detail, deal) {
     const modal = await this.modalController.create({
       component: GameDetailModalPage,
       componentProps: {
-        gameDetail: detail
+        gameDetail: detail,
+        deal
       }
     });
     return await modal.present();
