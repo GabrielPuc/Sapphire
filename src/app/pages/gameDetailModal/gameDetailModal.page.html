@@ -63,11 +63,10 @@
     <ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col>
-            <ion-img style="background-color: slategray;" [src]="getStoreImg(deal.storeID)"></ion-img>
-          </ion-col>
-          <ion-col>
-            <ion-button (click)="openDealURL(deal.dealID)">Go to Deal</ion-button>
+          <ion-col style="text-align: center;">
+            <ion-label class="rating-label" >Deal Link: </ion-label>
+            <ion-button (click)="openDealURL(deal.dealID)" style="height: 60px;" color="medium">
+              <ion-img [src]="getStoreImg(deal.storeID)"></ion-img></ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
