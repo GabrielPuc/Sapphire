@@ -4,7 +4,8 @@ import { CheapsharkProvider } from 'src/app/providers/cheapshark';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { STORES_DATA } from 'src/app/constants/stores';
 import { PopoverController } from '@ionic/angular';
-import { FilterSearch } from 'src/app/components/filter-search'
+import { FilterSearch } from 'src/app/components/filter-search';
+import {RainbowStatusService} from '../../providers/rainbow-status-service';
 
 @Component({
   selector: 'app-deals-search',
@@ -17,7 +18,8 @@ export class DealsSearchPage {
     private loadingController: LoadingController,
     private cheapshark: CheapsharkProvider,
     private iab: InAppBrowser,
-    private popOver: PopoverController) { }
+    private popOver: PopoverController,
+    private rainbowService: RainbowStatusService) { }
 
   private searchTerm = '';
   private numberPage = 0;
@@ -31,13 +33,20 @@ export class DealsSearchPage {
     onSale: "1",
     sortBy: "Deal Rating"
   }
+  private KEY_WORLD = 'sapphire';
 
   private scrollDepthTriggered = false;
+
+  isKeyWord() {
+    return this.searchTerm.toLowerCase() === this.KEY_WORLD.toLowerCase();
+  }
 
   onSearch() {
     this.resetList();
     if (this.searchTerm === '') {
       this.games = [];
+    } else if (this.isKeyWord()) {
+      this.fail = true;
     } else {
       // this.showLoader();
       this.getGames();

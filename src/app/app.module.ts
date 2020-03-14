@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameDetailModalPage } from './pages/gameDetailModal/gameDetailModal.page';
-import { CheapsharkProvider } from './providers/cheapshark'
+import { CheapsharkProvider } from './providers/cheapshark';
+import {RainbowStatusService} from './providers/rainbow-status-service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { FilterSearch } from './components/filter-search'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CheapsharkProvider
+    CheapsharkProvider,
+    RainbowStatusService
   ],
   bootstrap: [AppComponent]
 })
