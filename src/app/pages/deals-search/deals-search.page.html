@@ -18,8 +18,8 @@
     <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
     <ion-list style="background: transparent !important;">
 
-      <ion-item *ngFor="let game of games" lines="none">
-        <ion-card (click)="openDealURL(game.dealID)" mode="md" style="width: 100%;">
+      <ion-item *ngFor="let game of games" lines="none" (click)="searchDetail(game)">
+        <ion-card mode="md" style="width: 100%;">
           <ion-card-header>
             <ion-card-title>{{game.title}}</ion-card-title>
             <ion-card-subtitle>On {{getStoreName(game.storeID)}}</ion-card-subtitle>

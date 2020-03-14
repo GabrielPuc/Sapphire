@@ -6,6 +6,9 @@ import { STORES_DATA } from 'src/app/constants/stores';
 import { PopoverController } from '@ionic/angular';
 import { FilterSearch } from 'src/app/components/filter-search'
 import { LoadingService } from 'src/app/services/loading.service'
+import { ModalController } from '@ionic/angular';
+import { GameDetailModalPage } from '../gameDetailModal/gameDetailModal.page';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-deals-search',
@@ -19,12 +22,13 @@ export class DealsSearchPage {
     private cheapshark: CheapsharkProvider,
     private iab: InAppBrowser,
     private popOver: PopoverController,
-    private loading: LoadingService) { }
+    private loading: LoadingService,
+    private http: HttpClient,
+    private modalController: ModalController) { }
 
   private searchTerm = '';
   private numberPage = 0;
   private games = [];
-  private loader: any;
   private lastPageReached = false;
   private scrollContent: any;
   private deepScroll = false;
@@ -43,7 +47,7 @@ export class DealsSearchPage {
     } else {
       this.loading.present();
       this.getGames();
-      this.loading.dismiss();
+      //this.loading.dismiss();
     }
   }
 
@@ -63,10 +67,10 @@ export class DealsSearchPage {
         this.fail = this.games.length < 1;
         this.loading.dismiss();
       }, (error) => {
+        this.loading.dismiss();
         alert('No data available');
         this.fail = true;
       });
-    this.loading.dismiss();
   }
 
   loadData(event) {
@@ -125,6 +129,44 @@ export class DealsSearchPage {
         this.getGames();
       }
     }
+  }
+
+  searchDetail(deal) {
+    this.loading.present();
+    const treatedTitle = deal.title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
+      .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
+    let detail;
+    this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
+      detail = response;
+      if (detail.metacritic === null || detail.metacritic < 1) {
+        const score = deal.metacriticScore;
+        score > 0 ? deal.metacritic = score : detail.metacritic = 'unknown';
+      }
+      this.loading.dismiss();
+    }, (error) => {
+      let score = deal.metacriticScore;
+      if (score <= 0) {
+        score = 'tbd';
+      }
+      detail = {
+        background_image: deal.thumb, metacritic: score,
+        description: 'Please, go to the Deal page if you want to know more details about this game.',
+        name_original: deal.title
+      };
+      this.presentModal(detail, deal);
+      this.loading.dismiss();
+    }, () => this.presentModal(detail, deal));
+  }
+
+  async presentModal(detail, deal) {
+    const modal = await this.modalController.create({
+      component: GameDetailModalPage,
+      componentProps: {
+        gameDetail: detail,
+        deal
+      }
+    });
+    return await modal.present();
   }
 
   openDealURL(dealURL) {

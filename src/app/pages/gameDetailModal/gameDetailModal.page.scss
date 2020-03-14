@@ -1,20 +1,27 @@
+.title {
+  white-space: normal;
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
 
-.title{
-    white-space: normal;
-    font-weight: bold;
-    color: blue;
-    font-size: 20px;
-  }
+.main-image {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 200px;
+}
 
-.score{
-    content: '*';
-    white-space: normal;
-    font-weight: bold;
-    color: gray;
-    display: inline-block;
-    background-repeat: round;
-    vertical-align: middle;
-  }
+.score {
+  content: "*";
+  white-space: normal;
+  font-weight: bold;
+  color: gray;
+  display: inline-block;
+  background-repeat: round;
+  vertical-align: middle;
+}
 
 .circle {
   background: gainsboro;
@@ -32,30 +39,60 @@
   font-weight: bold;
 }
 
-.circle.good{
-background: lawngreen;
+.circle.good {
+  background: lawngreen;
 }
-.circle.meh{
-background: yellow;
+.circle.meh {
+  background: yellow;
 }
-.circle.oof{
-background: orange;
+.circle.oof {
+  background: orange;
 }
-.circle.bad{
-background: red;
+.circle.bad {
+  background: red;
 }
 
+.rating-label {
+  content: "*";
+  white-space: normal;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+}
+
+.rating {
+  content: "*";
+  white-space: normal;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.rating.best {
+  color: green;
+}
+
+.rating.average {
+  color: orange;
+}
+
+.rating.worst {
+  color: red;
+}
 
 .priceNormal {
   white-space: normal;
   color: darkred;
   font-size: large;
+  text-align: center;
 }
 
 .priceSale {
   white-space: normal;
   color: green;
   font-size: x-large;
+  text-align: center;
 }
 
 .pricetag {
@@ -89,9 +126,8 @@ background: red;
   border-bottom: 13px solid transparent;
 }
 
-.dealRating.best i{
-
-  content: '*';
+.dealRating.best i {
+  content: "*";
   width: 4em;
   height: 4em;
   background-image: url("/assets/imgs/sp3.png");
@@ -100,9 +136,8 @@ background: red;
   vertical-align: middle;
 }
 
-.dealRating.average i{
-
-  content: '*';
+.dealRating.average i {
+  content: "*";
   width: 4em;
   height: 4em;
   background-image: url("/assets/imgs/sp2.png");
@@ -111,9 +146,8 @@ background: red;
   vertical-align: middle;
 }
 
-.dealRating.worst i{
-
-  content: '*';
+.dealRating.worst i {
+  content: "*";
   width: 4em;
   height: 4em;
   background-image: url("/assets/imgs/sp1.png");

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ModalController} from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { GameDetailModalPage } from '../gameDetailModal/gameDetailModal.page';
+import { LoadingService } from 'src/app/services/loading.service'
 
 @Component({
   selector: 'app-storeDeals',
@@ -15,10 +16,12 @@ export class StoreDealsPage implements OnInit {
   private storeName: string;
   private storeID: string;
   private numberPage = 0;
+  private lastPageReached = false;
   constructor(
     private router: ActivatedRoute,
     private http: HttpClient,
-    private modalController: ModalController) {}
+    private modalController: ModalController,
+    private loading: LoadingService) { }
 
   ngOnInit() {
     const sub = this.router.params.subscribe(params => {
@@ -31,16 +34,18 @@ export class StoreDealsPage implements OnInit {
   getStoreDeals() {
     return new Promise(resolve => {
       this.http.get('https://www.cheapshark.com/api/1.0/deals?storeID=' + this.storeID + '&pageSize=20&pageNumber=' + this.numberPage +
-          '&onSale=1&sortBy=Deal Rating').subscribe((response) => {
-      this.deals.push.apply(this.deals, response);
-      resolve(true);
-    });
+        '&onSale=1&sortBy=Deal Rating').subscribe((response) => {
+          this.lastPageReached = response === [];
+          this.deals.push.apply(this.deals, response);
+          resolve(true);
+        });
     });
   }
 
   searchDetail(deal) {
+    this.loading.present();
     const treatedTitle = deal.title.replace(/\!|\?|\:/g, '').replace(' - ', ' ')
-        .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
+      .replace(/ |_/g, '-'); // <-- REPLACE THIS WITH A PROPER STRING REPLACE METHOD
     let detail;
     this.http.get('https://api.rawg.io/api/games/' + treatedTitle).subscribe((response) => {
       detail = response;
@@ -48,29 +53,29 @@ export class StoreDealsPage implements OnInit {
         const score = deal.metacriticScore;
         score > 0 ? deal.metacritic = score : detail.metacritic = 'unknown';
       }
+      this.loading.dismiss();
     }, (error) => {
       let score = deal.metacriticScore;
       if (score <= 0) {
         score = 'tbd';
       }
-      detail = {background_image: deal.thumb, metacritic: score,
+      detail = {
+        background_image: deal.thumb, metacritic: score,
         description: 'Please, go to the Deal page if you want to know more details about this game.',
-      name_original: deal.title}  ;
+        name_original: deal.title
+      };
       this.presentModal(detail, deal);
+      this.loading.dismiss();
     }, () => this.presentModal(detail, deal));
   }
 
   loadData(event) {
     setTimeout(() => {
       this.numberPage += 1;
-      this.getStoreDeals().then(( () => {
+      this.getStoreDeals().then((() => {
         event.target.complete();
+        event.target.disabled = this.lastPageReached;
       }));
-
-      // Implement condition to stop infinite scrolling
-      // if (CONDITION) {
-      //  event.target.disabled = true;
-      // }
     }, 500);
   }
 

@@ -14,4 +14,4 @@ import { DealsSearchPage } from './deals-search.page';
   ],
   declarations: [DealsSearchPage]
 })
-export class DealsSearchModule {}
+export class DealsSearchModule { }

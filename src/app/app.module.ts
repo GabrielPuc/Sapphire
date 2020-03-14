@@ -13,12 +13,12 @@ import { GameDetailModalPage } from './pages/gameDetailModal/gameDetailModal.pag
 import { CheapsharkProvider } from './providers/cheapshark'
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { FilterSearch } from './components/filter-search'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent,GameDetailModalPage,FilterSearch],
-  entryComponents: [GameDetailModalPage,FilterSearch],
-  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,ReactiveFormsModule],
+  declarations: [AppComponent, GameDetailModalPage, FilterSearch],
+  entryComponents: [GameDetailModalPage, FilterSearch],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     InAppBrowser,
     StatusBar,
@@ -28,4 +28,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
