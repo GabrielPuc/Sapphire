@@ -17,7 +17,7 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['deals-search.page.scss']
 })
 export class DealsSearchPage {
-
+ 
   constructor(
     private loadingController: LoadingController,
     private cheapshark: CheapsharkProvider,

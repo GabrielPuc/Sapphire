@@ -1,14 +1,9 @@
 <ion-item>
-    <ion-label>Only show deals?</ion-label>
-    <ion-select [(ngModel)]="onSale">
-        <ion-select-option value="1">Yes</ion-select-option>
-        <ion-select-option value="0">No</ion-select-option>
-    </ion-select>
+    <ion-label>Sort By</ion-label>
 </ion-item>
 
 <ion-item>
-    <ion-label>Sort By</ion-label>
-    <ion-select [(ngModel)]="sortBy">
+    <ion-select [(ngModel)]="sortBy" style="max-width: 100% !important;">
         <ion-select-option value="Deal Rating">Deal Rating</ion-select-option>
         <ion-select-option value="Savings">Savings</ion-select-option>
         <ion-select-option value="Price">Price</ion-select-option>
