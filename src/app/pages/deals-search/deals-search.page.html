@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  <div class="background-rainbow">
+  <div [ngClass]="{'background-rainbow' : rainbowService.isTurnOn() }">
     <ion-item>
       <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()"
         (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
@@ -43,13 +43,23 @@
       </ion-item>
 
     </ion-list>
+    <ion-list *ngIf="isKeyWord() && fail" style="background: transparent !important;">
 
+      <ion-item lines="none" (click)="rainbowService.toggle()">
+        <ion-card mode="md" style="width: 100%;">
+          <ion-card-header>
+            <ion-card-title>Rainbow Mode</ion-card-title>
+            <ion-card-subtitle>Bonus Feature</ion-card-subtitle>
+          </ion-card-header>
 
+          <ion-card-content>
+            <ion-label [hidden]="rainbowService.isTurnOn()">Click to turn on</ion-label>
+            <ion-label [hidden]="!rainbowService.isTurnOn()">Click to turn off</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
 
-    <ion-infinite-scroll threshold="500px" (ionInfinite)="loadData($event)">
-      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="...">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+    </ion-list>
   </div>
   <ion-fab *ngIf="deepScroll" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button size="small" (click)="scrollToTop()">
