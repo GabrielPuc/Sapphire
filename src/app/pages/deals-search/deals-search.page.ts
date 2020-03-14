@@ -6,6 +6,7 @@ import { STORES_DATA } from 'src/app/constants/stores';
 import { PopoverController } from '@ionic/angular';
 import { FilterSearch } from 'src/app/components/filter-search';
 import {RainbowStatusService} from '../../providers/rainbow-status-service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-deals-search',
@@ -19,7 +20,8 @@ export class DealsSearchPage {
     private cheapshark: CheapsharkProvider,
     private iab: InAppBrowser,
     private popOver: PopoverController,
-    private rainbowService: RainbowStatusService) { }
+    private rainbowService: RainbowStatusService,
+    private loading: LoadingService) { }
 
   private searchTerm = '';
   private numberPage = 0;
@@ -48,9 +50,9 @@ export class DealsSearchPage {
     } else if (this.isKeyWord()) {
       this.fail = true;
     } else {
-      // this.showLoader();
+      this.loading.present();
       this.getGames();
-      this.hideLoader();
+      this.loading.dismiss();
     }
   }
 
@@ -68,12 +70,12 @@ export class DealsSearchPage {
         this.numberPage += 1;
         console.log(response);
         this.fail = this.games.length < 1;
-        this.hideLoader();
+        this.loading.dismiss();
       }, (error) => {
         alert('No data available');
         this.fail = true;
       });
-    this.hideLoader();
+    this.loading.dismiss();
   }
 
   loadData(event) {
@@ -81,23 +83,6 @@ export class DealsSearchPage {
       this.getGames();
       event.target.complete();
       event.target.disabled = this.lastPageReached;
-    }, 500);
-  }
-
-  showLoader() {
-    this.loader = this.loadingController.create({
-      message: 'Looking for deals'
-    }).then((res) => {
-      res.present();
-
-      res.onDidDismiss().then((dis) => {
-      });
-    });
-  }
-
-  hideLoader() {
-    setTimeout(() => {
-      this.loadingController.dismiss();
     }, 500);
   }
 
@@ -134,9 +119,6 @@ export class DealsSearchPage {
     });
     filterPopover.onDidDismiss()
       .then((filtersSelected) => {
-        // console.log(filtersSelected)
-        // let filters = filtersSelected;
-        // console.log(filters.data.onSale);
         this.applyFilters(filtersSelected);
       });
     return await filterPopover.present();
@@ -151,8 +133,6 @@ export class DealsSearchPage {
         this.resetList();
         this.getGames();
       }
-    } else {
-      console.log('AYAYA');
     }
   }
 
