@@ -54,7 +54,7 @@ export class DealsSearchPage {
     } else if (this.isKeyWord()) {
       this.fail = true;
     } else {
-      this.loading.present();
+      //this.loading.present();
       this.getGames();
       //this.loading.dismiss();
     }
@@ -74,9 +74,9 @@ export class DealsSearchPage {
         this.numberPage += 1;
         console.log(response);
         this.fail = this.games.length < 1;
-        this.loading.dismiss();
+        //this.loading.dismissFix();
       }, (error) => {
-        this.loading.dismiss();
+        //this.loading.dismissFix();
         alert('No data available');
         this.fail = true;
       });
