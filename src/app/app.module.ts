@@ -15,6 +15,7 @@ import {RainbowStatusService} from './providers/rainbow-status-service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { FilterSearch } from './components/filter-search'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent, GameDetailModalPage, FilterSearch],
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     InAppBrowser,
     StatusBar,
+    SocialSharing,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CheapsharkProvider,

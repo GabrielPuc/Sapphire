@@ -69,6 +69,22 @@
               <ion-img [src]="getStoreImg(deal.storeID)"></ion-img></ion-button>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <button ion-button (click)="shareDealTwitter(deal.dealID)" style="background-color: white;">
+              <ion-icon style="color: white;" name="logo-twitter" class="fa fa-twitter" style="width: 20px; height: 20px;"></ion-icon>
+            </button>
+            <button ion-button (click)="shareDealFB(deal.dealID)" style="background-color: white;">
+              <ion-icon style="color: white;" name="logo-facebook" class="fa fa-facebook" style="width: 20px; height: 20px;"></ion-icon>
+            </button>
+            <button ion-button (click)="shareDealWA(deal.dealID)" style="background-color: white;">
+              <ion-icon style="color: white;" name="logo-whatsapp" class="fa fa-whatsapp" style="width: 20px; height: 20px;"></ion-icon>
+            </button>
+            <button ion-button (click)="shareDealGeneral(deal.dealID)" style="background-color: white;">
+              <ion-icon style="color: white;" name="md-share" class="fa fa-general" style="width: 20px; height: 20px;"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </ion-item>
     <ion-item lines="none">
