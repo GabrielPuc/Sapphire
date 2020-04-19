@@ -14,10 +14,10 @@ export class FilterSearch {
 
     constructor(private popOver: PopoverController) { };
 
-    dismiss() {
+    dismiss(sortBy) {
         let filters = {
             onSale: this.onSale,
-            sortBy: this.sortBy
+            sortBy: sortBy//this.sortBy
         }
         this.popOver.dismiss(filters)
     }

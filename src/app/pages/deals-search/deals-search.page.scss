@@ -94,8 +94,29 @@
   vertical-align: middle;
 }
 
+.search-bar{
+  background-color: white; 
+  margin: 0px; 
+  padding: 0px; 
+  border-radius: 8px;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px; /* Half the height */
+  margin-left: -50px; /* Half the width */
+}
+
 ion-item {
   --ion-background-color: transparent;
+  --padding-end: 0px;
+  --inner-padding-end: 0px;
+  --padding-start: 0px;
+  --inner-padding-start: 0px;
 }
 
 ion-card {

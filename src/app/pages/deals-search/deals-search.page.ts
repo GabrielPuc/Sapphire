@@ -115,6 +115,7 @@ export class DealsSearchPage {
   }
 
   async presentFilterPopover(event) {
+    console.log("please")
     const filterPopover = await this.popOver.create({
       component: FilterSearch,
       event: event,

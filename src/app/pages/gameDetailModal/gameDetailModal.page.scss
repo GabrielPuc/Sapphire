@@ -1,8 +1,9 @@
 .title {
   white-space: normal;
-  font-weight: bold;
-  color: blue;
+  font-weight: normal;
+  color: white;
   font-size: 20px;
+  padding-left: 6px;
 }
 
 .main-image {
@@ -184,4 +185,33 @@
 .fa-general {
   background: #a4c639;
   color: white;
+}
+
+.a{
+  font-weight: normal;
+  font-size: 30px;
+  background-color: #0f53ba00;
+  color: #0f53ba;
+}
+
+.b{
+  font-weight: normal;
+  font-size: 25px;
+  background-color: #0f53ba80;
+  color: white;
+}
+
+.c{
+  font-weight: normal;
+  font-size: 20px;
+  background-color: #0f53ba;
+  color: white;
+}
+
+.game-name{
+  font-weight: normal;
+  font-size: 20px;
+  background-color: #0f53ba;
+  color: white;
+  height: 56px;
 }

@@ -77,4 +77,26 @@ export class GameDetailModalPage {
     });
   }
 
+  private scrollDepthTriggered = false;
+  private deepScroll = 0;
+  async logScrolling($event) {
+    if (this.scrollDepthTriggered) {
+      return;
+    }
+
+    if ($event.target.localName !== 'ion-content') {
+      return;
+    }
+
+    const currentScrollDepth = $event.detail.scrollTop;
+    if(currentScrollDepth > 200){
+      this.deepScroll = 2
+    }else if(currentScrollDepth > 100 && currentScrollDepth <= 199){
+      this.deepScroll = 1
+    }else{
+      this.deepScroll = 0
+    }
+    console.log({currentScrollDepth});
+  }
+
 }

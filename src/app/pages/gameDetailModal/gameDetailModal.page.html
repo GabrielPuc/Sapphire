@@ -1,19 +1,20 @@
-<ion-header>
-  <ion-toolbar class="toolbar">
-    <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Close</ion-button>
-    </ion-buttons>
-    <ion-title>
-      Detail
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-header>
+  <!--ion-item-divider class="title" color="primary" sticky [ngClass]="{'a' : deepScroll == 0,'b' : deepScroll == 1,'c' : deepScroll == 2}"-->
+  <ion-item-divider class="title" color="primary" sticky class="game-name">
+    <ion-buttons style="width: 100%;">
+      <ion-label class="ion-text-wrap" style="width: 100%;">
+        {{gameDetail.name_original}}
+      </ion-label>
+      <ion-button (click)="dismiss()" slot="end">
+        <ion-icon style="color: white;" name="md-close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item-divider>
+</ion-header>
+ 
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <ion-list>
-    <ion-item lines="none">
-      <ion-label class="title">{{gameDetail.name_original}}</ion-label>
-    </ion-item>
     <ion-img class="main-image" src="{{gameDetail.background_image}}"></ion-img>
     <ion-item lines="none"
       *ngIf="gameDetail.metacritic !== null && gameDetail.metacritic !== undefined && gameDetail.metacritic !== ''">

@@ -1,21 +1,18 @@
 <ion-header>
   <ion-toolbar class="toolbar">
-    <ion-title>
-      Deals
-    </ion-title>
+    <ion-item style="margin-left: 6px; margin-right: 6px;">
+      <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()"
+        (keyup.enter)="onSearch()" (ionClear)="onClear()" class="search-bar" ></ion-searchbar>
+      <ion-button end (click)="presentFilterPopover($event)">
+        <ion-icon name="md-funnel"></ion-icon>
+      </ion-button>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
   <div [ngClass]="{'background-rainbow' : rainbowService.isTurnOn() }">
-    <ion-item>
-      <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()"
-        (keyup.enter)="onSearch()" (ionClear)="onClear()"></ion-searchbar>
-      <ion-button color="success" end (click)="presentFilterPopover($event)">
-        <ion-icon name="md-cog"></ion-icon>
-      </ion-button>
-    </ion-item>
-    <ion-img *ngIf="this.games.length === 0 && fail === false" src="assets/logo.png"></ion-img>
+    <ion-img class="logo" *ngIf="this.games.length === 0 && fail === false" src="assets/wagon_full.png"></ion-img>
     <ion-list style="background: transparent !important;">
 
       <ion-item *ngFor="let game of games" lines="none" (click)="searchDetail(game)">
