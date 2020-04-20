@@ -46,6 +46,38 @@
   animation: rainbow 18s ease infinite;
 }
 
+@font-face {
+  font-family: 'ComicNeue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/ComicNeue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'ComicNeue';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/ComicNeue-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'San Francisco';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/SFMono-Regular.otf');
+}
+
+@font-face {
+  font-family: 'San Francisco';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/SFMono-Bold.otf');
+}
+
+*, h1, h2, button, ion-label {
+  font-family: "San Francisco" !important;
+  }
+
 @-webkit-keyframes rainbow {
   0% {
     background-position: 0% 82%;

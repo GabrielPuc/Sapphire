@@ -206,12 +206,16 @@
   font-size: 20px;
   background-color: #0f53ba;
   color: white;
-}
+} 
 
 .game-name{
   font-weight: normal;
   font-size: 20px;
-  background-color: #0f53ba;
+  background-color: var(--ion-color-primary);
   color: white;
   height: 56px;
+}
+
+ion-item {
+  --ion-background-color: var(--ion-color-light) !important;
 }

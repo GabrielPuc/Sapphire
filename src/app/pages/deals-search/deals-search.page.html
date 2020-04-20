@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+<ion-content id="listScroll" [scrollEvents]="true" (ionScroll)="logScrolling($event)" color="light">
   <div [ngClass]="{'background-rainbow' : rainbowService.isTurnOn() }">
     <ion-img class="logo" *ngIf="this.games.length === 0 && fail === false" src="assets/wagon_full.png"></ion-img>
     <ion-list style="background: transparent !important;">

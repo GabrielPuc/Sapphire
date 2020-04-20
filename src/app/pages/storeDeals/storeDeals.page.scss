@@ -55,3 +55,7 @@
   background-repeat: round;
   vertical-align: middle;
 }
+
+ion-item {
+  --ion-background-color: var(--ion-color-light) !important;
+}

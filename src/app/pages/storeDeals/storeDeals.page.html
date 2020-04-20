@@ -9,8 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-list>
+<ion-content style="background-color: var(--ion-color-light);">
+    <ion-list style="background-color: var(--ion-color-light);">
       <ion-item *ngFor="let deal of deals" (click)="searchDetail(deal)">
         <div style="margin: 8px;">
           <ion-label class="title">{{deal.title}}</ion-label>
