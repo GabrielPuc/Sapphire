@@ -74,8 +74,23 @@
   src: url('./assets/fonts/SFMono-Bold.otf');
 }
 
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/OpenSans-Bold.ttf');
+}
+
 *, h1, h2, button, ion-label {
-  font-family: "San Francisco" !important;
+  font-family: "Open Sans" !important;
   }
 
 @-webkit-keyframes rainbow {

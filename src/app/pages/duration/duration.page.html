@@ -1,14 +1,16 @@
 <ion-header>
   <ion-toolbar class="toolbar">
-    <ion-title>
+    <ion-title style="margin-top: 6px;">
       How Long To Beat
     </ion-title>
+    <ion-item style="margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px; border-radius: 8px;">
+      <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()"
+    (ionClear)="onClear()" class="search-bar"></ion-searchbar> 
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()" (keyup.enter)="onSearch()"
-    (ionClear)="onClear()"></ion-searchbar>
+<ion-content color="light">
   <ion-item *ngFor="let game of games" lines="none"> 
     <ion-card mode="md" style="width: 100%;">
       <ion-card-header>

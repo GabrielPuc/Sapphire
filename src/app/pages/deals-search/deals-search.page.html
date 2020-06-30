@@ -2,7 +2,7 @@
   <ion-toolbar class="toolbar">
     <ion-item style="margin-left: 6px; margin-right: 6px;">
       <ion-searchbar animated placeholder="Search" [(ngModel)]="searchTerm" (search)="onSearch()"
-        (keyup.enter)="onSearch()" (ionClear)="onClear()" class="search-bar" ></ion-searchbar>
+        (keyup.enter)="onSearch()" (ionClear)="onClear()" class="search-bar"></ion-searchbar>
       <ion-button end (click)="presentFilterPopover($event)">
         <ion-icon name="md-funnel"></ion-icon>
       </ion-button>

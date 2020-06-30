@@ -21,6 +21,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen
   ) {
+    this.splashScreen.hide();
     this.initializeApp();
   }
 
@@ -29,7 +30,7 @@ export class AppComponent {
       StatusBar.setBackgroundColor({
         color: "#0f52ba"
     });
-      this.splashScreen.hide();
+    
     });
   }
 }

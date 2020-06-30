@@ -289,5 +289,25 @@ export let STORES_DATA = [
             logo: "/img/stores/logos/28.png",
             icon: "/img/stores/icons/28.png"
         }
+    },
+    {
+        storeID: "30",
+        storeName: "IndieGala",
+        isActive: 1,
+        images: {
+            banner: "/img/stores/banners/29.png",
+            logo: "/img/stores/logos/29.png",
+            icon: "/img/stores/icons/29.png"
+        }
+    },
+    {
+        storeID: "31",
+        storeName: "2Game",
+        isActive: 1,
+        images: {
+            banner: "/img/stores/banners/30.png",
+            logo: "/img/stores/logos/30.png",
+            icon: "/img/stores/icons/30.png"
+        }
     }
 ];

@@ -185,7 +185,14 @@ export class DealsSearchPage {
   }
 
   getStoreName(id) {
-    return STORES_DATA.find(i => i.storeID === id).storeName;
+    if(id<31){
+      return STORES_DATA.find(i => i.storeID === id).storeName;
+    }else{
+      return "CSMB"
+    }
+    
+    //console.log("id que llega " + id)
+    //return "CSMB"
   }
 
   getDiscount(saving) {

@@ -7,10 +7,22 @@
     height: 200px;
   }
 
+  .search-bar{
+    background-color: var(--ion-color-light); 
+    margin: 0px; 
+    padding: 0px; 
+    border-radius: 8px;
+  }
+
+
   ion-item {
+    --ion-background-color: transparent;
     --padding-end: 0px;
     --inner-padding-end: 0px;
     --padding-start: 0px;
     --inner-padding-start: 0px;
-    // here other custom CSS from documentation
+  }
+  
+  ion-card {
+    background-color: #fff;
   }

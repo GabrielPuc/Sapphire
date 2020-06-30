@@ -6,6 +6,8 @@ import { ModalController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { STORES_DATA } from 'src/app/constants/stores';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Plugins } from '@capacitor/core';
+const { Share } = Plugins;
 
 @Component({
   selector: 'app-gameDetailModal',
@@ -74,6 +76,16 @@ export class GameDetailModalPage {
       console.log("Ok")
     }).catch(() => {
       console.log("Not Ok")
+    });
+  }
+
+  async share(dealId){
+    let saved = parseFloat(this.deal.normalPrice) - parseFloat(this.deal.salePrice)
+    let shareRet = await Share.share({
+      title: this.gameDetail.name_original + " Deal",
+      text: "Got " + this.gameDetail.name_original + ' for $' + Number(this.deal.salePrice).toFixed() + ' saved $' + saved + " check the deal before it ends, for more deals check Sapphire Game Deals in Play Store",
+      url: 'https://www.cheapshark.com/redirect?dealID=' + dealId,
+      dialogTitle: 'Share the Deal'
     });
   }
 
