@@ -65,6 +65,10 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
+  "browser": {
+    "crypto": false,
+    "stream": false
+  },
   "description": "An Ionic project",
   "engines": {
     "node": "10.15.0"
