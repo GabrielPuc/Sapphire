@@ -67,7 +67,10 @@
   },
   "browser": {
     "crypto": false,
-    "stream": false
+    "stream": false,
+    "fs": false, 
+    "path": false, 
+    "os": false
   },
   "description": "An Ionic project",
   "engines": {
