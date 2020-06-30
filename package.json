@@ -74,7 +74,8 @@
     "net": false,
     "path": false,
     "stream": false,
-    "tls": false
+    "tls": false,
+    "zlib": false
   },
   "description": "An Ionic project",
   "engines": {
