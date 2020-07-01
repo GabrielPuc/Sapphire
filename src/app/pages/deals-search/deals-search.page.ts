@@ -23,18 +23,18 @@ export class DealsSearchPage {
     private cheapshark: CheapsharkProvider,
     private iab: InAppBrowser,
     private popOver: PopoverController,
-    private rainbowService: RainbowStatusService,
+    public rainbowService: RainbowStatusService,
     private loading: LoadingService,
     private http: HttpClient,
     private modalController: ModalController) { }
 
-  private searchTerm = '';
+  public searchTerm = '';
   private numberPage = 0;
-  private games = [];
+  public games = [];
   private lastPageReached = false;
   private scrollContent: any;
-  private deepScroll = false;
-  private fail = false;
+  public deepScroll = false;
+  public fail = false;
   private filters = {
     onSale: "1",
     sortBy: "Deal Rating"

@@ -12,8 +12,8 @@ import { LoadingService } from 'src/app/services/loading.service'
 })
 export class StoreDealsPage implements OnInit {
 
-  private deals: any = [];
-  private storeName: string;
+  public deals: any = [];
+  public storeName: string;
   private storeID: string;
   private numberPage = 0;
   private lastPageReached = false;

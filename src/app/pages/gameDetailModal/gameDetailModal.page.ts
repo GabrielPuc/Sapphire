@@ -15,8 +15,8 @@ const { Share } = Plugins;
   styleUrls: ['gameDetailModal.page.scss']
 })
 export class GameDetailModalPage {
-  private gameDetail: any;
-  private deal: any;
+  public gameDetail: any;
+  public deal: any;
   constructor(
     private iab: InAppBrowser,
     private navParams: NavParams,

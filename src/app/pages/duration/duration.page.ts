@@ -10,7 +10,7 @@ export class DurationPage {
 
   public hltbService = new HowLongToBeatService();
   public games = [];
-  private searchTerm = '';
+  public searchTerm = '';
 
   constructor() {
     

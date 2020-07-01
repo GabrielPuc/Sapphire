@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class StoresPage {
 
-  private stores: any = [];
+  public stores: any = [];
   constructor(
     private http: HttpClient,
     private router: Router) {
